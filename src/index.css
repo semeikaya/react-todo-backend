@@ -8,17 +8,29 @@
   text-align: center;
   list-style-type: none;
   margin: auto;
+  padding: 0;
 }
-li {
-  background-color: antiquewhite;
+.mark {
   margin: 10px;
   padding: 10px;
   border: none;
   border-radius: 10px 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   text-align: center;
+  flex: 1;
+  background-color: aquamarine;
+}
+
+.nonmark {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex: 1;
 }
 
 li .text {
@@ -29,10 +41,62 @@ li .text {
 .removeBtn {
   background: none;
   border: none;
-  font-size: 25px;
+  font-size: 30px;
   color: rgb(226, 45, 45);
 }
-.main-text{
+.main-text {
   font-weight: 700;
   font-size: 35px;
+  text-align: center;
+}
+.form {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  justify-content: space-between;
+}
+.form input {
+  width: 85%;
+  border: 2px solid rgb(23, 115, 219);
+  border-radius: 10px 10px;
+}
+.fav {
+  background: none;
+  border: none;
+  font-size: 22px;
+}
+.selected .fav {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: crimson;
+}
+.selected {
+  display: flex;
+  align-items: center;
+}
+
+.nonselected {
+  display: flex;
+  align-items: center;
+}
+
+.addBtn {
+  background: none;
+  color: rgb(93, 93, 233);
+  border: 2px solid rgb(255, 255, 255);
+  font-size: 25px;
+}
+.addBtn:hover {
+  background: none;
+  background-color: rgb(93, 93, 233);
+  color: white;
+  border: 2px solid rgb(93, 93, 233);
+  font-size: 25px;
+  border-radius: 10px 10px;
+}
+input {
+  font-size: 22px;
+  padding: 0px 10px 0px 10px;
 }

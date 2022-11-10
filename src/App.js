@@ -1,14 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos, removeTodo } from "./features/todos/todosSlice";
+import Input from "./components/Input";
+import Todo from "./components/Todo";
+import {
+  addTodo,
+  completeTodo,
+  fetchTodos,
+  removeTodo,
+} from "./features/todos/todosSlice";
 
 function App() {
+  const [input, setInput] = useState("");
   const todos = useSelector((state) => state.todos);
   const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
 
   function handleRemove(id) {
     dispatch(removeTodo(id));
+  }
+  function hadleChange(e) {
+    setInput(e.target.value);
+  }
+
+  function handleSubmit() {
+    dispatch(addTodo(input));
+    setInput("");
+  }
+
+  function makeMark(id) {
+    dispatch(completeTodo(id));
   }
 
   useEffect(() => {
@@ -20,24 +40,15 @@ function App() {
   }
 
   return (
-    <ul className="list">
-      <div className="main-text">ТУДУШКА</div>
-      {todos.map((todo) => {
-        return (
-          <li>
-            <div className="text">{todo.title}</div>
-            <div>
-              <button
-                className="removeBtn"
-                onClick={() => handleRemove(todo.id)}
-              >
-                ×
-              </button>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <Input
+        handleSubmit={handleSubmit}
+        hadleChange={hadleChange}
+        input={input}
+        setInput={setInput}
+      />
+      <Todo handleRemove={handleRemove} makeMark={makeMark} todos={todos} />
+    </>
   );
 }
 
