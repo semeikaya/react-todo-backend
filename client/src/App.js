@@ -28,6 +28,7 @@ function App() {
   }
 
   function makeMark(id) {
+    console.log(id);
     dispatch(completeTodo(id));
   }
 
