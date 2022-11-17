@@ -9,7 +9,7 @@ app.use(cors());
 app.use("/", require("./routes/todos.route"));
 
 mongoose.connect(
-  "mongodb+srv://bersyak:u3wOhcqF3c3a4sj1@cluster0.akjwcf0.mongodb.net/todos",
+  process.env.MONGO_SERVER,
   (err) => {
     if (err) {
       console.log(err);
